@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #000080;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            
+        }
+        pa{
+            color:#000080;
+        }
+        
+       
+        .prediction-form input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .prediction-form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        .result {
+            margin-top: 20px;
+        }
+        
+        
+        
+    </style>
+ 
+</head>
+<body>
+    <header>
+        <h1>BREAST CANCER PREDICTION</h1>
+    </header>
+    <main>
+        <section class="prediction-form">
+            <h2>Enter Patient Information</h2>
+            <form method="POST" action="/predict" id="prediction-form">
+                <table><tr>
+                <td><label for="mean_radius">Mean Radius:</label></td>
+                <td><input type="number" step="0.00001" name="mean_radius"  required></td>
+                <!--</tr><tr>-->
+                <td><label for="mean_texture">Mean Texture:</label></td>
+                    <td><input type="number" step="0.00001" name="mean_texture"  required></td>
+                <!--</tr><tr>-->
+                    <td><label for="mean_perimeter">Mean Perimeter:</label></td>
+                    <td><input type="number" step="0.00001" name="mean_perimeter"  required></td>
+                </tr><tr>
+                    <td><label for="mean_area">Mean Area:</label></td>
+                        <td><input type="number" step="0.00001" name="mean_area"  required></td>
+                        <!--</tr><tr>-->
+                            <td><label for="mean_smoothness">Mean Smoothness:</label></td>
+                                <td><input type="number" step="0.00001" name="mean_smoothness"  required></td>
+                        <!--</tr><tr>-->
+                            <td><label for="mean_compacnetss">Mean compacnetss:</label></td>
+                                <td><input type="number" step="0.00001" name="mean_compactness"  required></td>
+                                </tr><tr>
+                    <td><label for="mean_concavity">Mean concavity:</label></td>
+                        <td><input type="number" step="0.00001" name="mean_concavity"  required></td>
+                        <!--</tr><tr>-->
+                            <td><label for="mean_concavepoints">Mean concavepoints:</label></td>
+                                <td><input type="number" step="0.00001" name="mean_concavepoints"  required></td>
+                                <!--</tr><tr>-->
+                                    <td><label for="mean_symmetry">Mean symmetry:</label></td>
+                                        <td><input type="number" step="0.00001" name="mean_symmetry"  required></td>
+                                </tr><tr>
+                
+                <td></td><td></td><td></td><td></td><td></td><td><input type="submit" value="Predict" align="center"></td></tr></table>
+            </form>
+        </section>
+        <section class="result">
+            <h2>Prediction Result</h2>
+            {% if prediction %}
+            <p><strong>Predicted Diagnosis:</strong> <pa >{{ prediction }}</pa></p>
+            
+        {% endif %}
+        </section>
+    </main>
+ 
+</body>
+</html>
